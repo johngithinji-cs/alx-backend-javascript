@@ -1,49 +1,16 @@
-interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [key: string]: any;
-}
+// Subjects.ts
+import { Cpp } from "./Cpp";
+import { Java } from "./Java";
+import { React } from "./React";
 
-const teacher: Teacher = {
-  firstName: "John",
-  lastName: "Doe",
-  fullTimeEmployee: true,
-  location: "New York",
-  contract: true
-};
+namespace Subjects {
+  export const cpp = new Cpp();
+  export const java = new Java();
+  export const react = new React();
 
-interface Directors extends Teacher {
-  numberOfReports: number;
-}
-
-function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName[0]}. ${lastName}`;
-}
-
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
-}
-
-interface StudentClassConstructor {
-  new (firstName: string, lastName: string): StudentClass;
-}
-
-interface StudentClass {
-  workOnHomework(): string;
-  displayName(): string;
-}
-
-class StudentClass implements StudentClass {
-  constructor(private firstName: string, private lastName: string) {}
-
-  workOnHomework(): string {
-    return "Currently working";
-  }
-
-  displayName(): string {
-    return this.firstName;
-  }
+  export const cTeacher: Teacher = {
+    firstName: "John",
+    lastName: "Doe",
+    experienceTeachingC: 10
+  };
 }
