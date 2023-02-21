@@ -9,7 +9,7 @@ const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 /**
  * Counts the students in a CSV data file.
  * @param {String} dataPath The path to the CSV data file.
- * @author Bezaleel Olakunori <https://github.com/B3zaleel>
+ * @author John Mathai <https://github.com/johngithinji-cs>
  */
 const countStudents = (dataPath) => new Promise((resolve, reject) => {
   if (!dataPath) {
@@ -37,7 +37,7 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
             studentRecord.length - 1,
           );
           const field = studentRecord[studentRecord.length - 1];
-OAOAOA          if (!Object.keys(studentGroups).includes(field)) {
+          if (!Object.keys(studentGroups).includes(field)) {
             studentGroups[field] = [];
           }
           const studentEntries = studentPropNames.map((propName, idx) => [
@@ -58,9 +58,9 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
             group.map((student) => student.firstname).join(', '),
           ].join(' '));
         }
-OBOBOB        resolve(reportParts.join('\n'));
+        resolve(reportParts.join('\n'));
       }
-OBOBOB    });
+    });
   }
 });
 
@@ -74,9 +74,9 @@ const SERVER_ROUTE_HANDLERS = [
       res.setHeader('Content-Length', responseText.length);
       res.statusCode = 200;
       res.write(Buffer.from(responseText));
-OBOBOB    },
+    },
   },
-OBOBOB  {
+  {
     route: '/students',
     handler(_, res) {
       const responseParts = ['This is the list of our students'];
@@ -93,10 +93,10 @@ const SERVER_ROUTE_HANDLERS = [
         .catch((err) => {
           responseParts.push(err instanceof Error ? err.message : err.toString());
           const responseText = responseParts.join('\n');
-OBOBOB          res.setHeader('Content-Type', 'text/plain');
+          res.setHeader('Content-Type', 'text/plain');
           res.setHeader('Content-Length', responseText.length);
           res.statusCode = 200;
-OBOBOB          res.write(Buffer.from(responseText));
+          res.write(Buffer.from(responseText));
         });
     },
   },
@@ -112,7 +112,7 @@ app.on('request', (req, res) => {
 });
 
 app.listen(PORT, HOST, () => {
-OBOBOB  process.stdout.write(`Server listening at -> http://${HOST}:${PORT}\n`);
-OBOBOB});
+  process.stdout.write(`Server listening at -> http://${HOST}:${PORT}\n`);
+});
 
 module.exports = app;
