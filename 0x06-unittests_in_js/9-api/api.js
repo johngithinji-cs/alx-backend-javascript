@@ -14,4 +14,7 @@ app.get('/cart/:id(\\d+)', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`API available on localhost port ${PORT}`
+    console.log(`API available on localhost port ${PORT}`);
+    });
+
+module.exports = app;
